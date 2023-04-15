@@ -38,14 +38,14 @@ fi
 
 echo -e "\n\n${BBlue}Instalació LAMP\n"
 #Instal.lacio apache2
-if [ $(dpkg-query -W -f='${Status}' 'apache2' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'apache2' >/dev/null 2>&1 | grep -c "ok installed") -eq 0 ]; then
 
 	echo -e "${Yellow}Apache2 no esta instal.lat, procedim amb la descarga"
 	apt-get -y install apache2 >/dev/null 2>&1
 
 	if [ $? -eq 0 ]; then
 
-		echo -e "${Green}Apache2 instal.at correctament"
+		echo -e "${Green}Apache2 instal.at correctament\n"
 		echo "Apache2 instal.at correctament" >>/script/registre.txt
 	else
 
@@ -60,7 +60,7 @@ else
 fi
 
 #Instal.lacio mariadb-server
-if [ $(dpkg-query -W -f='${Status}' 'software-properties-common' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'software-properties-common' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}Software-properties-common no esta instal.lat, procedim amb la descarga"
 	apt-get -y install software-properties-common >/dev/null 2>&1
@@ -81,7 +81,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'dirmngr' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'dirmngr' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}Dirmngr no esta instal.lat, procedim amb la descarga"
 	apt-get -y install dirmngr >/dev/null 2>&1
@@ -128,7 +128,7 @@ apt-get update >/dev/null 2>&1
 
 
 
-if [ $(dpkg-query -W -f='${Status}' 'mariadb-server' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'mariadb-server' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}Mariadb-server no esta instal.lat, procedim amb la descarga"
 	apt-get -y install mariadb-server >/dev/null 2>&1
@@ -153,7 +153,7 @@ fi
 
 
 #Instal.lacio php
-if [ $(dpkg-query -W -f='${Status}' 'php' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php >/dev/null 2>&1
@@ -176,7 +176,7 @@ fi
 
 
 #Instal.lacio php-mysql
-if [ $(dpkg-query -W -f='${Status}' 'php-mysql' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php-mysql' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP-mysql no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php-mysql >/dev/null 2>&1
@@ -260,7 +260,7 @@ clear
 echo -e "${BBlue}Instalació php7.4 i activació"
 #Instalació paquets php7.4 i activació
 
-if [ $(dpkg-query -W -f='${Status}' 'lsb-release' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'lsb-release' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}lsb-release no esta instal.lat, procedim amb la descarga"
 	apt-get -y install lsb-release >/dev/null 2>&1
@@ -282,7 +282,7 @@ else
 fi
 
 
-if [ $(dpkg-query -W -f='${Status}' 'apt-transport-https' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'apt-transport-https' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}apt-transport-https no esta instal.lat, procedim amb la descarga"
 	apt-get -y install apt-transport-https >/dev/null 2>&1
@@ -304,7 +304,7 @@ else
 fi
 
 
-if [ $(dpkg-query -W -f='${Status}' 'ca-certificates' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'ca-certificates' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}ca-certificates no esta instal.lat, procedim amb la descarga"
 	apt-get -y install ca-certificates >/dev/null 2>&1
@@ -349,7 +349,7 @@ else
 fi
 apt-get update >/dev/null 2>&1
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4 no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4 >/dev/null 2>&1
@@ -395,7 +395,7 @@ else
 fi
 
 #Intalació tots paquets secundaris
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-apcu' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-apcu' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-apcu no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-apcu >/dev/null 2>&1
@@ -416,7 +416,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-bz2' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-bz2' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-bz2 no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-bz2 >/dev/null 2>&1
@@ -437,7 +437,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-curl' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-curl' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-curl no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-curl >/dev/null 2>&1
@@ -458,7 +458,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-gd' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-gd' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-gd no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-gd >/dev/null 2>&1
@@ -479,7 +479,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-intl' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-intl' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-intl no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-intl >/dev/null 2>&1
@@ -500,7 +500,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-ldap' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-ldap' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-ldap no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-ldap >/dev/null 2>&1
@@ -521,7 +521,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-mbstring' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-mbstring' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-mbstring no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-mbstring >/dev/null 2>&1
@@ -542,7 +542,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-xml' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-xml' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-xml no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-xml >/dev/null 2>&1
@@ -563,7 +563,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-xmlrpc' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-xmlrpc' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-xmlrpc no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-xmlrpc >/dev/null 2>&1
@@ -584,7 +584,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-zip' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-zip' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-zip no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-zip >/dev/null 2>&1
@@ -605,7 +605,7 @@ else
 
 fi
 
-if [ $(dpkg-query -W -f='${Status}' 'php7.4-mysql' | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
+if [ $(dpkg-query -W -f='${Status}' 'php7.4-mysql' >/dev/null 2>&1 | grep -c "ok installed") >/dev/null 2>&1 -eq 0 ]; then
 
 	echo -e "${Yellow}PHP7.4-mysql no esta instal.lat, procedim amb la descarga"
 	apt-get -y install php7.4-mysql >/dev/null 2>&1
@@ -656,5 +656,5 @@ else
 fi
 echo "INSTALACIO DE GLPI FETA CORRECTAMENT" >>/script/registre.txt
 echo -e "${BBlue}INSTALACIO DE GLPI FETA CORRECTAMENT\n"
-wcho -e "${White}"
+echo -e "${White}"
 
